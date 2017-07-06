@@ -1,1 +1,2 @@
-Sample Commit
+Sample Commit 
+Git Commit Test
