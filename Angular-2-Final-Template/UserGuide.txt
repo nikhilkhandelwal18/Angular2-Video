@@ -1,0 +1,9 @@
+[value]=”username” - Binds the expression username to the input element’s value property
+(input)=”expression” - Is a declarative way of binding an expression to the input element’s input event (yes there’s such event)
+username = $event.target.value - The expression that gets executed when the input event is fired
+$event - Is an expression exposed in event bindings by Angular, which has the value of the event’s payload
+
+The property binding [ngModel] takes care of updating the underlying input DOM element. 
+The event binding (ngModelChange) notifies the outside world when there was a change in the DOM.
+
+https://angular.io/guide/template-syntax

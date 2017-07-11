@@ -7,18 +7,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var FormsComponent = (function () {
+    function FormsComponent() {
+        //databinding property
+        this.myName = "Nikhil";
     }
-    AppComponent = __decorate([
+    FormsComponent.prototype.onSubmit = function (value) {
+        console.log(value);
+    };
+    FormsComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            // template: `<h1>Hello World</h1>  
-            //             <sub-app></sub-app>`
-            template: "<h1>Hello World</h1>  \n              <my-template></my-template>"
+            selector: 'my-template',
+            templateUrl: '/app/app.formsComponent.html'
         })
-    ], AppComponent);
-    return AppComponent;
+    ], FormsComponent);
+    return FormsComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.FormsComponent = FormsComponent;
+//# sourceMappingURL=app.formsComponent.js.map
