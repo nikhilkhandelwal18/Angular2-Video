@@ -9,16 +9,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
+var forms_2 = require("@angular/forms");
 var app_component_1 = require("./app.component");
 var app_subComponent_1 = require("./app.subComponent");
 var app_formsComponent_1 = require("./app.formsComponent");
+var app_mdfComponent_1 = require("./app.mdfComponent");
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, app_subComponent_1.SubComponent, app_formsComponent_1.FormsComponent],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_2.ReactiveFormsModule],
+            declarations: [app_component_1.AppComponent, app_subComponent_1.SubComponent, app_formsComponent_1.FormsComponent, app_mdfComponent_1.MDFComponent],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

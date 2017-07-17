@@ -15,7 +15,7 @@ var AppComponent = (function () {
             selector: 'my-app',
             // template: `<h1>Hello World</h1>  
             //             <sub-app></sub-app>`
-            template: "<h1>Hello World</h1>  \n              <my-template></my-template>"
+            template: "<h1>Hello World</h1>  \n              <my-mdftemplate></my-mdftemplate>"
         })
     ], AppComponent);
     return AppComponent;
