@@ -13,7 +13,7 @@ var MainRouteComponent = (function () {
     MainRouteComponent = __decorate([
         core_1.Component({
             selector: 'my-route',
-            template: "<h1>Main Route Component</h1>  \n              "
+            template: "<h1>Routing Application</h1> \n              <nav>\n                <a routerLink=\"/departments\" routerLinkActive = \"active\">Departments</a>\n                <a  routerLink=\"/employees\" routerLinkActive = \"active\">Employees</a>\n                \n              </nav> \n\n              <router-outlet>\n              </router-outlet>\n              "
         })
     ], MainRouteComponent);
     return MainRouteComponent;
