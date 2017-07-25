@@ -21,12 +21,12 @@ var EmployeeDetailComponent = (function () {
         var _this = this;
         /* with Http */
         this._employeeService.getEmployees()
-            .subscribe(function (responseEmpData) { return _this.employees = responseEmpData; });
+            .subscribe(function (responseEmpData) { return _this.employees = responseEmpData; }, function (responseEmpError) { return _this.errorMsg = responseEmpError; });
     };
     EmployeeDetailComponent = __decorate([
         core_1.Component({
             selector: 'emp-detail',
-            template: "<h2>Employee Details</h2>\n            <ul *ngFor = \"let emp of employees\" >\n                <li> {{emp.id}} - {{emp.name}} - {{emp.gender}} </li>\n            </ul>\n"
+            template: "<h2>Employee Details</h2>\n            <h3>{{errorMsg}}</h3>\n            <ul *ngFor = \"let emp of employees\" >\n                <li> {{emp.id}} - {{emp.name}} - {{emp.gender}} </li>\n            </ul>\n"
         }),
         __metadata("design:paramtypes", [employee_service_1.EmployeeService])
     ], EmployeeDetailComponent);

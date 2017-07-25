@@ -22,12 +22,12 @@ var EmployeeListComponent = (function () {
         var _this = this;
         /* with Http */
         this._employeeService.getEmployees()
-            .subscribe(function (responseEmpData) { return _this.employees = responseEmpData; });
+            .subscribe(function (responseEmpData) { return _this.employees = responseEmpData; }, function (responseEmpError) { return _this.errorMsg = responseEmpError; });
     };
     EmployeeListComponent = __decorate([
         core_1.Component({
             selector: 'emp-list',
-            template: "<h2>Employee List</h2>\n         <ul *ngFor = \"let emp of employees;\">\n            <li>\n                {{ emp.name }}\n            </li>\n         </ul> \n         "
+            template: "<h2>Employee List</h2>\n            <h3>{{errorMsg}}</h3>\n         <ul *ngFor = \"let emp of employees;\">\n            <li>\n                {{ emp.name }}\n            </li>\n         </ul> \n         "
         }),
         __metadata("design:paramtypes", [employee_service_1.EmployeeService])
     ], EmployeeListComponent);

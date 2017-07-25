@@ -4,6 +4,7 @@ import { EmployeeService } from './employee.service';
 @Component({
 selector:'emp-list',
 template: `<h2>Employee List</h2>
+            <h3>{{errorMsg}}</h3>
          <ul *ngFor = "let emp of employees;">
             <li>
                 {{ emp.name }}
@@ -14,6 +15,9 @@ template: `<h2>Employee List</h2>
 
 export class EmployeeListComponent implements OnInit {
     employees = [];
+    errorMsg: string;
+
+
     constructor(private _employeeService : EmployeeService){}
     ngOnInit(){
         /* without Http */
@@ -21,7 +25,8 @@ export class EmployeeListComponent implements OnInit {
 
         /* with Http */
         this._employeeService.getEmployees()
-            .subscribe(responseEmpData => this.employees = responseEmpData);
+            .subscribe(responseEmpData => this.employees = responseEmpData,
+                        responseEmpError => this.errorMsg = responseEmpError     );
     }
 
     /* get from service */
