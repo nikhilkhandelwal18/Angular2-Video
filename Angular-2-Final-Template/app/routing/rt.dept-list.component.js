@@ -12,8 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var DepartmentListComponent = (function () {
-    function DepartmentListComponent(router) {
+    function DepartmentListComponent(router, activatedRoute) {
         this.router = router;
+        this.activatedRoute = activatedRoute;
         this.departments = [
             { "id": 1, "name": "Angular" },
             { "id": 2, "name": "Node" },
@@ -22,15 +23,24 @@ var DepartmentListComponent = (function () {
             { "id": 5, "name": "Bootstrap" }
         ];
     }
+    DepartmentListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            var id = parseInt(params['id']);
+            _this.selectedId = id;
+        });
+    };
     DepartmentListComponent.prototype.onSelect = function (department) {
         this.router.navigate(['/departments', department.id]);
     };
+    DepartmentListComponent.prototype.isSelected = function (department) { return department.id === this.selectedId; };
     DepartmentListComponent = __decorate([
         core_1.Component({
             selector: 'dept-list',
-            template: "<h1>Dept List Route Component</h1>  \n              <ul class=\"items\">\n                <li (click)=\"onSelect(dept)\" *ngFor = \"let dept of departments\">\n                  <span class=\"badge\"> {{dept.id}} </span> {{dept.name}}\n                </li>\n              </ul>\n              "
+            template: "<h1>Dept List Route Component</h1>  \n              <ul class=\"items\">\n                <li (click)=\"onSelect(dept)\" [class.selected]='isSelected(dept)' *ngFor = \"let dept of departments\">\n                  <span class=\"badge\"> {{dept.id}} </span> {{dept.name}}\n                </li>\n              </ul>\n              "
         }),
-        __metadata("design:paramtypes", [router_1.Router])
+        __metadata("design:paramtypes", [router_1.Router,
+            router_1.ActivatedRoute])
     ], DepartmentListComponent);
     return DepartmentListComponent;
 }());

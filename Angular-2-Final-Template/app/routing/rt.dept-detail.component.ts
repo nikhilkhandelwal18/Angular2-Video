@@ -7,7 +7,10 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
    template: `<h1>Dept Detail Route Component</h1>  
               Department Id: {{departmentId}} 
               <a (click)="goPrvious()"> Previous </a>
-              <a (click)="goNext()"> Next </a>  
+              <a (click)="goNext()"> Next </a>
+              <p>
+              <button (click)="gotoDepartments()"> Back </button>  
+               </p> 
               `
 })
 export class DepartmentDetailComponent 
@@ -39,5 +42,10 @@ export class DepartmentDetailComponent
   goNext(){
       let nextId = this.departmentId + 1;
       this.router.navigate(['/departments', nextId]);
+  }
+
+  gotoDepartments(){
+      let selectedId = this.departmentId ? this.departmentId : null;
+      this.router.navigate(['/departments', {id: selectedId, random:"random"} ]); //Optional Params
   }
 }
