@@ -8,13 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var home_component_1 = require("./home.component");
 var rt_dept_list_component_1 = require("./rt.dept-list.component");
 var rt_emp_list_component_1 = require("./rt.emp-list.component");
 var rt_dept_detail_component_1 = require("./rt.dept-detail.component");
+var page_not_found_component_1 = require("./page-not-found.component");
 var routes = [
+    { path: '', component: home_component_1.HomeComponent },
     { path: 'departments', component: rt_dept_list_component_1.DepartmentListComponent },
     { path: 'employees', component: rt_emp_list_component_1.EmployeeListComponent },
-    { path: 'departments/:id', component: rt_dept_detail_component_1.DepartmentDetailComponent }
+    { path: 'departments/:id', component: rt_dept_detail_component_1.DepartmentDetailComponent },
+    { path: '**', component: page_not_found_component_1.PageNotFoundComponent } //wildcart path
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
@@ -28,5 +32,6 @@ var AppRoutingModule = (function () {
     return AppRoutingModule;
 }());
 exports.AppRoutingModule = AppRoutingModule;
-exports.routingComponents = [rt_dept_list_component_1.DepartmentListComponent, rt_emp_list_component_1.EmployeeListComponent, rt_dept_detail_component_1.DepartmentDetailComponent];
+exports.routingComponents = [home_component_1.HomeComponent, rt_dept_list_component_1.DepartmentListComponent, rt_emp_list_component_1.EmployeeListComponent, rt_dept_detail_component_1.DepartmentDetailComponent,
+    page_not_found_component_1.PageNotFoundComponent];
 //# sourceMappingURL=app-routing.module.js.map
