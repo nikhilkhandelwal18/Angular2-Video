@@ -12,18 +12,35 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var DepartmentDetailComponent = (function () {
-    function DepartmentDetailComponent(activatedRoute) {
+    function DepartmentDetailComponent(activatedRoute, router) {
         this.activatedRoute = activatedRoute;
+        this.router = router;
     }
+    /* ngOnInit(){
+      let id = this.activatedRoute.snapshot.params['id']; //when neviagting from component to itself it does not reload itself. {limitation}
+      this.departmentId = id;
+    } */
     DepartmentDetailComponent.prototype.ngOnInit = function () {
-        var id = this.activatedRoute.snapshot.params['id'];
-        this.departmentId = id;
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            var id = parseInt(params['id']);
+            _this.departmentId = id;
+        });
+    };
+    DepartmentDetailComponent.prototype.goPrvious = function () {
+        var previousId = this.departmentId - 1;
+        this.router.navigate(['/departments', previousId]);
+    };
+    DepartmentDetailComponent.prototype.goNext = function () {
+        var nextId = this.departmentId + 1;
+        this.router.navigate(['/departments', nextId]);
     };
     DepartmentDetailComponent = __decorate([
         core_1.Component({
-            template: "<h1>Dept Detail Route Component</h1>  \n              Department Id: {{departmentId}} \n              "
+            template: "<h1>Dept Detail Route Component</h1>  \n              Department Id: {{departmentId}} \n              <a (click)=\"goPrvious()\"> Previous </a>\n              <a (click)=\"goNext()\"> Next </a>  \n              "
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            router_1.Router])
     ], DepartmentDetailComponent);
     return DepartmentDetailComponent;
 }());
