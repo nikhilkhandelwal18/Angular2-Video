@@ -17,6 +17,7 @@ var app_formsComponent_1 = require("./app.formsComponent");
 var app_mdfComponent_1 = require("./app.mdfComponent");
 var employee_list_component_1 = require("./services/employee-list.component");
 var employee_detail_component_1 = require("./services/employee-detail.component");
+var app_animation_component_1 = require("./app.animation.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,7 +25,8 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_2.ReactiveFormsModule, http_1.HttpModule],
             declarations: [app_component_1.AppComponent, app_subComponent_1.SubComponent, app_formsComponent_1.FormsComponent, app_mdfComponent_1.MDFComponent,
-                employee_list_component_1.EmployeeListComponent, employee_detail_component_1.EmployeeDetailComponent],
+                employee_list_component_1.EmployeeListComponent, employee_detail_component_1.EmployeeDetailComponent,
+                app_animation_component_1.AnimationComponent],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

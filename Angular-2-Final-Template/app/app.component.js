@@ -14,11 +14,12 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>Hello World</h1>  \n              <sub-app></sub-app>"
+            // template: `<h1>Hello World</h1>  
+            //             <sub-app></sub-app>`
             // template: `<h1>App Component my-app</h1>  
             //             <emp-list></emp-list>
             //             <emp-detail></emp-detail>`
-            ,
+            template: "<h1>Hello World</h1>  \n              <my-animation></my-animation>",
             providers: [employee_service_1.EmployeeService]
         })
     ], AppComponent);

@@ -7,5 +7,5 @@ import { RouteModule } from './routing/route.module';
 const platform = platformBrowserDynamic();
 platform.bootstrapModule(AppModule);
 
-platform.bootstrapModule(RouteModule);
+//platform.bootstrapModule(RouteModule);
 
