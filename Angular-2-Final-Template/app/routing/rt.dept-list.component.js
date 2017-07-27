@@ -31,7 +31,10 @@ var DepartmentListComponent = (function () {
         });
     };
     DepartmentListComponent.prototype.onSelect = function (department) {
-        this.router.navigate(['/departments', department.id]);
+        /* absolute path */
+        //this.router.navigate(['/departments', department.id]);
+        /* relative path */
+        this.router.navigate([department.id], { relativeTo: this.activatedRoute });
     };
     DepartmentListComponent.prototype.isSelected = function (department) { return department.id === this.selectedId; };
     DepartmentListComponent = __decorate([

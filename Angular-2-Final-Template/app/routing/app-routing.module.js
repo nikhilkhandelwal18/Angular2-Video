@@ -14,10 +14,11 @@ var rt_emp_list_component_1 = require("./rt.emp-list.component");
 var rt_dept_detail_component_1 = require("./rt.dept-detail.component");
 var page_not_found_component_1 = require("./page-not-found.component");
 var routes = [
-    { path: '', component: home_component_1.HomeComponent },
-    { path: 'departments', component: rt_dept_list_component_1.DepartmentListComponent },
+    //{path: '', component: HomeComponent},                    
+    { path: '', redirectTo: '\departments', pathMatch: 'full' },
+    { path: 'xxx', component: rt_dept_list_component_1.DepartmentListComponent },
     { path: 'employees', component: rt_emp_list_component_1.EmployeeListComponent },
-    { path: 'departments/:id', component: rt_dept_detail_component_1.DepartmentDetailComponent },
+    { path: 'xxx/:id', component: rt_dept_detail_component_1.DepartmentDetailComponent },
     { path: '**', component: page_not_found_component_1.PageNotFoundComponent } //wildcart path
 ];
 var AppRoutingModule = (function () {

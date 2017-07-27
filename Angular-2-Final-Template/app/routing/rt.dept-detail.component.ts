@@ -46,6 +46,10 @@ export class DepartmentDetailComponent
 
   gotoDepartments(){
       let selectedId = this.departmentId ? this.departmentId : null;
-      this.router.navigate(['/departments', {id: selectedId, random:"random"} ]); //Optional Params
+      /* absolute path */
+      //this.router.navigate(['/departments', {id: selectedId, random:"random"} ]); //Optional Params
+
+      /* relative path */
+      this.router.navigate(['../', {id: selectedId} ], {relativeTo: this.activatedRoute});
   }
 }

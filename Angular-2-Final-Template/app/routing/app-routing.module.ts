@@ -10,10 +10,11 @@ import { PageNotFoundComponent } from './page-not-found.component';
 
 
 const routes: Routes = [
-                    {path: '', component: HomeComponent},                    
-                    {path: 'departments', component: DepartmentListComponent},
+                    //{path: '', component: HomeComponent},                    
+                    {path: '', redirectTo:'\departments', pathMatch: 'full' },
+                    {path: 'xxx', component: DepartmentListComponent},
                     {path: 'employees', component: EmployeeListComponent},
-                    {path: 'departments/:id', component: DepartmentDetailComponent},
+                    {path: 'xxx/:id', component: DepartmentDetailComponent},
                     {path: '**', component: PageNotFoundComponent} //wildcart path
                   ]
 
